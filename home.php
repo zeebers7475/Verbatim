@@ -1,3 +1,6 @@
+
+
+
 <?php
 include "db_config.php";
 $connect=mysqli_connect($server,$username,$dbpassword,$dbname);
@@ -34,6 +37,9 @@ if($result)
          {
 
             echo "Welcome User: $email <br>";
+
+            header('Location: profile.html');
+exit;
     
 
             echo "<br/>";
@@ -53,3 +59,5 @@ if(mysqli_num_rows($result)==0)
     echo "Email $Userlogin is not registered";
 }
 ?>
+
+
