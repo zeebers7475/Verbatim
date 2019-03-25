@@ -1,2 +1,0 @@
-# Verbatim
-Social Media Blog
