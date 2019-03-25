@@ -97,3 +97,7 @@
 .dropdown:hover .drop-content {
   display: block;
 }
+
+footer { 
+  display: block;
+}
