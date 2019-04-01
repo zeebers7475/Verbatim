@@ -22,10 +22,14 @@ $query= "SELECT email FROM verbatim.users where email = '$newemail'";
 $result = mysqli_query($con, $query);
 
 if($result) {
-	if (mysqli_num_rows($result)>0)
+	if (mysqli_num_rows($result)>0){
 
     echo "Sorry that Email is already used.";
+    mysqli_close($con);
+    echo "Please <a href='index.html'>login</a>";
+
     
+    }
     else {
 
         //mysqli_query($con, $create);
@@ -39,13 +43,15 @@ if($result) {
             setcookie("user", $_POST["email"], false);
             setcookie("pass", md5($_POST["password"]), false);
         }
+
+        mysqli_query($con, $create);
+
+        mysqli_close($con);
+
+        header('Location: setup.html');
     }
 
-    mysqli_query($con, $create);
-
-    header('Location: setup.html');
+    
 }
-
-mysqli_close($con);
 
 ?>
